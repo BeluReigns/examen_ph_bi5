@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalle del Aviso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-img
+    [src]="aviso.imagen"
+    class="imagen-ajustada"
+    alt="imagen aviso"
+    style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 16px"
+  ></ion-img>
+
+  <h2>{{ aviso.titulo }}</h2>
+  <p><strong>Fecha:</strong> {{ aviso.fecha | date:'dd/MM/yyyy' }}</p>
+  <p><strong>Descripción:</strong></p>
+  <p>{{ aviso.descripcion }}</p>
+
+  <ion-button expand="block" color="medium" (click)="cerrar()">Cerrar</ion-button>
+</ion-content>

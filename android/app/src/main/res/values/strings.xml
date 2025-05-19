@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ph-examen-avisos</string>
+    <string name="title_activity_main">ph-examen-avisos</string>
+    <string name="package_name">ph.examen.avisos</string>
+    <string name="custom_url_scheme">ph.examen.avisos</string>
+</resources>

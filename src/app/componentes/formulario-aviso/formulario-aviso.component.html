@@ -1,0 +1,44 @@
+<form [formGroup]="formulario" (ngSubmit)="guardar()">
+  <ion-input
+    label="Título"
+    formControlName="titulo"
+    placeholder="Ingresa el título"
+    label-placement="stacked"
+  ></ion-input>
+  <div *ngIf="formulario.controls['titulo'].invalid && formulario.controls['titulo'].touched">
+    <small *ngIf="formulario.controls['titulo'].hasError('required')">El título es obligatorio.</small>
+    <small *ngIf="formulario.controls['titulo'].hasError('minlength')">
+      Mínimo 5 caracteres.
+    </small>
+  </div>
+
+  <ion-textarea
+    label="Descripción"
+    formControlName="descripcion"
+    placeholder="Ingresa la descripción"
+    label-placement="stacked"
+    rows="4"
+  ></ion-textarea>
+  <div *ngIf="formulario.controls['descripcion'].invalid && formulario.controls['descripcion'].touched">
+    <small *ngIf="formulario.controls['descripcion'].hasError('required')">La descripción es obligatoria.</small>
+    <small *ngIf="formulario.controls['descripcion'].hasError('minlength')">Mínimo 20 caracteres.</small>
+  </div>
+
+  <ion-button expand="block" (click)="tomarFoto()">📷 Tomar Foto</ion-button>
+  <ion-img *ngIf="imagenBase64" [src]="imagenBase64" style="margin-top: 10px; border-radius: 8px;"></ion-img>
+
+  <ion-button type="submit" expand="block" [disabled]="formulario.invalid || !imagenBase64">
+    Guardar
+  </ion-button>
+</form>
+
+<hr />
+
+<h4>Lista de avisos</h4>
+<app-aviso-item
+  *ngFor="let aviso of avisos"
+  [aviso]="aviso"
+  [mostrarEliminar]="true"
+  (onEliminar)="confirmarEliminacion($event)"
+></app-aviso-item>
+

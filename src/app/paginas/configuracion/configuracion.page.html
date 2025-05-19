@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="irAlInicio()">
+        <ion-icon slot="icon-only" [icon]="homeOutline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Configuraciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Mostrar ícono de eliminar en inicio</ion-label>
+    <ion-toggle
+      slot="end"
+      [checked]="mostrarEliminar"
+      (ionChange)="cambiarEstado($event)"
+    ></ion-toggle>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-item lines="none">
+  <ion-avatar slot="start">
+    <ion-img [src]="aviso.imagen" alt="foto aviso"></ion-img>
+  </ion-avatar>
+
+  <ion-label (click)="verDetalle()" class="ion-text-wrap">
+    <h3>{{ aviso.titulo }}</h3>
+    <p>{{ aviso.fecha | date:'dd/MM/yyyy' }}</p>
+  </ion-label>
+
+  <ion-icon
+    *ngIf="mostrarEliminar"
+    slot="end"
+    [icon]="IconoTrash"
+    color="danger"
+    (click)="eliminar()"
+    style="cursor: pointer"
+  ></ion-icon>
+</ion-item>

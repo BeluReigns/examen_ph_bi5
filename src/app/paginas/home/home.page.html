@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Publicaciones</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="irAConfiguracion()">
+        <ion-icon [icon]="settingsOutline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <app-aviso-item
+    *ngFor="let aviso of avisos"
+    [aviso]="aviso"
+    [mostrarEliminar]="mostrarEliminar"
+    (onVerDetalle)="abrirDetalle(aviso)"
+    (onEliminar)="eliminarAviso($event)">
+  </app-aviso-item>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="irAFormulario()">
+      <ion-icon [icon]="addIcon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
